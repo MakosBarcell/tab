@@ -1,0 +1,26 @@
+[
+	{
+		"ProductName": "Milk",
+		"Quantity": 4,
+		"ExtendedPrice": 10,
+		"ShipperName": "ACME",
+		"ShippedDate": "2015-02-18T00:00:00",
+		"Status": "B"
+	},
+	{
+		"ProductName": "Canned Beans",
+		"Quantity": 3,
+		"ExtendedPrice": 6.85,
+		"ShipperName": "ACME",
+		"ShippedDate": "2015-03-02T00:00:00",
+		"Status": "B"
+	},
+	{
+		"ProductName": "Salad",
+		"Quantity": 2,
+		"ExtendedPrice": 8.8,
+		"ShipperName": "ACME",
+		"ShippedDate": "2015-04-12T00:00:00",
+		"Status": "C"
+	}
+]

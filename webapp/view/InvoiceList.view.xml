@@ -1,0 +1,128 @@
+<mvc:View
+	controllerName="ui5.walkthrough.controller.InvoiceList"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"> 
+
+	<Table
+		id="invoiceList"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		items="{ path: 'DataModel>/' }"
+
+	>
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>invoiceListTitle}" />
+				<ToolbarSpacer />
+				<SearchField
+					width="50%"
+					search=".onFilterInvoices"
+				/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+				hAlign="End"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="5em"
+			>
+				<Text text="{DataModel>id}" />
+			</Column>
+			<Column>
+				<Text text="{DataModel>Name}" />
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true"
+			>
+				<Text text="{i18n>columnStatus}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="false"
+			>
+				<Text text="{i18n>columnSupplier}" />
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>columnPrice}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press=".onPress"
+			>
+				<cells>
+					<ObjectNumber
+						number="{invoice>Quantity}"
+						emphasized="false"
+					/>
+					<ObjectIdentifier title="{invoice>ProductName}" />
+					<Text
+						text="{
+								parts: [
+									'invoice>Status',
+									'i18n>invoiceStatusA',
+									'i18n>invoiceStatusB',
+									'i18n>invoiceStatusC'
+								],
+								formatter: '.formatter.statusText'
+							}"
+					/>
+					<Text text="{invoice>ShipperName}" />
+					<ObjectNumber
+						number="{
+								parts: [
+									'invoice>ExtendedPrice',
+									'view>/currency'
+								],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {
+									showMeasure: false
+								}
+							}"
+						unit="{view>/currency}"
+						state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+					/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+   <!-- <Page id="page" title="{i18n>title}">
+ <content>
+     <FlexBox id="_IDGenFlexBox1"
+        items="{ path: 'DataModel>/' }"
+        height="auto"
+        width="auto"
+        wrap="Wrap"
+     >
+         <items>
+            <FlexBox id="_IDGenFlexBox" width="100%"
+            direction="Column"
+            height="auto"
+            alignItems="Center"
+            justifyContent="Center"
+            alignContent="Center">
+ 
+            <Text id="_IDGenText" text="ID:"/>      
+            <Text id="_IDGenText1" text="{DataModel>id}" />
+            <Text id="_IDGenText2" text="Név:"/>
+            <Text id="_IDGenText3" text="{DataModel>Name}"  />
+			<Text id="_IDGenText4" text="Ár:"/>      
+            <Text id="_IDGenText5" text="{DataModel>Price}" />
+            <Text id="_IDGenText6" text="db"/>
+            <Text id="_IDGenText7" text="{DataModel>Quantity}"  />
+			<Text id="_IDGenText8" text="Beszállító:"/>      
+            <Text id="_IDGenText9" text="{DataModel>Shippername}" />
+            <Text id="_IDGenText10" text="Státusz"/>
+            <Text id="_IDGenText11" text="{DataModel>Status}"  />
+		    </FlexBox>
+     </items>
+
+    </FlexBox>
+ 
+</content> 
+
+    </Page> -->
+</mvc:View>

@@ -16,7 +16,7 @@ sap.ui.define([
 getDataList: function (){
  		var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZWT_BM_ODATA_SRV_01/");
 
- oModel.read("DataSet", {
+ oModel.read("ZWT_DATAS_BMSet", {
  			success: function(oData) {
 			this.DataModel = new sap.ui.model.json.JSONModel(oData.results);
  		 			this.getView().setModel(this.DataModel, "DataModel");
